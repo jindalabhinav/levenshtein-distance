@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Calculate Levenshtein Distance</h1>
+</div>
+
+<div class="container form-content">
+    <h5>Enter two strings to calculate:</h5>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">First string</label>
+                <input type="text" class="form-control" id="validationCustom01 Number1" value="string1" name="Number1" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a string.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Second string</label>
+                <input type="text" class="form-control" id="validationCustom02 Number2" value="string2" name="Number2" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a string.
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary submit-button" type="submit">Submit form</button>
+            </div>
+        </form>
+    }
+    @{
+        if (!string.IsNullOrEmpty(ViewData["Result"] as string))
+        {
+            <h6 class="answer">Answer --> @ViewData["Result"]</h6>
+        }
+    }
+
+</div>
